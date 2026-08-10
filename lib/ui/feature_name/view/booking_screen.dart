@@ -10,11 +10,11 @@ class BookingScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final bookingsAsync =ref.watch(bookingViewmodelProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('الحجوزات')),
+      appBar: AppBar(title: const Text('Bookings')),
       body: bookingsAsync.when(
         data: (bookings) {
           if (bookings.isEmpty) {
-            return const Center(child: Text('لا توجد حجوزات حالياً'));
+            return const Center(child: Text('no booking found'));
           }
           return ListView.builder(
             itemCount: bookings.length,
