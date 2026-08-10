@@ -1,0 +1,40 @@
+name: clean_arch_1
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+
+    # إدارة الحالة الحديثة والسهلة (اللي اتفقنا عليها)
+  flutter_riverpod: ^2.6.0
+
+    # لتنقل بين الشاشات بطريقة احترافية وسهلة
+  go_router: ^14.0.0
+
+    # لتوليد البيانات الثابتة وإدارة الـ Models (Immutable) بكل سهولة
+  riverpod_annotation: ^2.6.1
+
+    # للتعامل مع الـ API وجلب البيانات من الإنترنت
+  dio: ^5.4.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.14         # أداة التوليد العامة
+  riverpod_generator: ^2.6.3
+
+
+  flutter_lints: ^6.0.0
+
+flutter:
+
+  uses-material-design: true
