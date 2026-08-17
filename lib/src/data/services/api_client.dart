@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../../core/result.dart';
-import '../models/service_models/booking_api_model.dart';
+import '../models/booking_api_model.dart';
 
 class ApiClient {
 

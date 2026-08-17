@@ -1,6 +1,6 @@
-import 'package:clean_arch_1/data/models/booking_model.dart';
 
 import '../../core/result.dart';
+import '../model/booking_model.dart';
 
 abstract class BookingRepo {
 

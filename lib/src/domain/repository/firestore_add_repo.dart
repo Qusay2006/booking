@@ -1,5 +1,5 @@
-import 'package:clean_arch_1/core/result.dart';
-import 'package:clean_arch_1/data/models/firestore_model.dart';
+
+import '../../core/result.dart';
 
 abstract class FirestoreAddRepo {
 

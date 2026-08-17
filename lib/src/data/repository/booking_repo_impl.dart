@@ -1,8 +1,7 @@
-import 'package:clean_arch_1/data/models/booking_model.dart';
-import 'package:clean_arch_1/data/repository/booking_repo.dart';
-import 'package:clean_arch_1/data/services/api_client.dart';
-
 import '../../core/result.dart';
+import '../../domain/model/booking_model.dart';
+import '../../domain/repository/booking_repo.dart';
+import '../services/api_client.dart';
 
 interface class BookingRepoImpl implements BookingRepo {
   final ApiClient _apiClient;

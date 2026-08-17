@@ -1,8 +1,9 @@
-import 'package:clean_arch_1/core/result.dart';
-import 'package:clean_arch_1/data/models/firestore_model.dart';
-import 'package:clean_arch_1/data/models/service_models/firestore_api_model.dart';
-import 'package:clean_arch_1/data/repository/firestore_add_repo.dart';
-import 'package:clean_arch_1/data/services/firestore.dart';
+
+import '../../core/result.dart';
+import '../../domain/model/firestore_model.dart';
+import '../../domain/repository/firestore_add_repo.dart';
+import '../models/firestore_api_model.dart';
+import '../services/firestore.dart';
 
 interface class FirestoreAddRepoImpl extends FirestoreAddRepo {
   final Firestore _firestore;
