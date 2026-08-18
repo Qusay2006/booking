@@ -12,5 +12,5 @@ void init(){
   sl.registerLazySingleton<FirestoreAddRepo>(()
   => FirestoreAddRepoImpl(firestore: sl()),);
   
-  sl.registerFactory(() => FirestoreBloc(repo: sl()),)
+  sl.registerFactory(() => FirestoreBloc(repo: sl()),);
 }
