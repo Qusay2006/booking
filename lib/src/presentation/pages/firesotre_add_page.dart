@@ -1,0 +1,80 @@
+import 'package:clean_arch_1/src/domain/bloc/firestore_add/firestore_bloc.dart';
+import 'package:clean_arch_1/src/domain/bloc/firestore_add/firestore_state.dart';
+import 'package:clean_arch_1/src/presentation/pages/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../core/injection.dart';
+import '../../domain/bloc/firestore_add/firestore_events.dart';
+
+class FirestoreProvider extends StatelessWidget {
+  const FirestoreProvider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(create: (context) => sl<FirestoreBloc>(),
+    child:
+    MaterialApp(home: const FiresotreAddPage(),),);
+  }
+}
+
+
+class FiresotreAddPage extends StatelessWidget {
+  const FiresotreAddPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController collectionPath = TextEditingController();
+    TextEditingController title = TextEditingController();
+    TextEditingController description = TextEditingController();
+    TextEditingController creator = TextEditingController();
+
+    return BlocConsumer<FirestoreBloc, FirestoreState>(
+      listener: (context, state) {
+        state.whenOrNull(
+
+          error: (error) {
+            ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text(error)));
+          },
+
+         isAdded: (data, collectionPath) {
+            Navigator.pushReplacement(context, MaterialPageRoute(
+              builder: (context) => HomePage(),));
+         },
+
+        );
+      },
+      builder: (context, state) {
+        return state.maybeWhen(
+
+          loading: () => Center(child: CircularProgressIndicator(),),
+
+          orElse: () {
+
+            return Padding(padding: EdgeInsets.all(7)
+              , child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(controller: collectionPath,),
+                  TextField(controller: title,),
+                  TextField(controller: description,),
+                  TextField(controller: creator,),
+
+                  SizedBox(height: 20,),
+
+                  ElevatedButton(onPressed: () {
+                    context.read<FirestoreBloc>().add(AddButtonPressed(data: {
+                      'title': title.text,
+                      'description': description.text,
+                      'creator': creator.text},
+                        collectionPath: collectionPath.text));
+                  }, child: Text("Add"))
+
+                ],),);
+          },);
+      }
+      ,
+    );
+  }
+}
+
