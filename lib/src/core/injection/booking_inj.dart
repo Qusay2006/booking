@@ -7,12 +7,12 @@ import '../../presentation/cubit/booking_fetchData_cubit.dart';
 
 
 
-final fireStoreSl = GetIt.instance;
+final bookingSl = GetIt.instance;
 
 void bookingInjection(){
-  fireStoreSl.registerLazySingleton( () => GetbookingApi(),);
-  fireStoreSl.registerLazySingleton<BookingRepo>(()
-  => BookingRepoImpl(apiClient: fireStoreSl()),);
+  bookingSl.registerLazySingleton( () => GetbookingApi(),);
+  bookingSl.registerLazySingleton<BookingRepo>(()
+  => BookingRepoImpl(apiClient: bookingSl()),);
 
-  fireStoreSl.registerFactory(() => BookingFetchDataCubit(repo: fireStoreSl()),);
+  bookingSl.registerFactory(() => BookingFetchDataCubit(repo: bookingSl()),);
 }

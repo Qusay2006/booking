@@ -1,4 +1,4 @@
-import 'package:clean_arch_1/src/core/injection/fireStore_inj.dart';
+import 'package:clean_arch_1/src/core/injection/booking_inj.dart';
 import 'package:clean_arch_1/src/domain/model/booking_model.dart';
 import 'package:clean_arch_1/src/presentation/cubit/booking_fetchData_cubit.dart';
 import 'package:clean_arch_1/src/core/cubit/booking_state.dart';
@@ -11,7 +11,7 @@ class BookingProvider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context) => booknigSl<BookingFetchDataCubit>(),
+    return BlocProvider(create: (context) => bookingSl<BookingFetchDataCubit>(),
       child: MaterialApp(
         home:const BookingPage(),) ,);
 
@@ -35,13 +35,15 @@ class BookingPage extends StatelessWidget {
           },);
       },
           error: (error) {
-      return SizedBox();
+          return Center(child: Text(error),);
           },
           loading:() {
             return Center(child: CircularProgressIndicator());
           },
           initial: () {
-            return SizedBox();
+          return Center(child: ElevatedButton(onPressed: () {
+          context.read<BookingFetchDataCubit>().getData();
+          }, child: Text('Search Booking')),);
           },);
 
     },),);

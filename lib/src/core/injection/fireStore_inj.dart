@@ -7,13 +7,13 @@ import '../../presentation/bloc/firestore_add/firestore_bloc.dart';
 
 
 
-final booknigSl = GetIt.instance;
+final fireStoreSl = GetIt.instance;
 
 void init(){
-  booknigSl.registerLazySingleton(() => Firestore(),);
+  fireStoreSl.registerLazySingleton(() => Firestore(),);
 
-  booknigSl.registerLazySingleton<FirestoreAddRepo>(()
-  => FirestoreAddRepoImpl(firestore: booknigSl()),);
+  fireStoreSl.registerLazySingleton<FirestoreAddRepo>(()
+  => FirestoreAddRepoImpl(firestore: fireStoreSl()),);
 
-  booknigSl.registerFactory(() => FirestoreBloc(repo: booknigSl()),);
+  fireStoreSl.registerFactory(() => FirestoreBloc(repo: fireStoreSl()),);
 }

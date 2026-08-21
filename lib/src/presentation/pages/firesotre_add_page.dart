@@ -2,7 +2,7 @@ import 'package:clean_arch_1/src/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/injection/booking_inj.dart';
+import '../../core/injection/fireStore_inj.dart';
 import '../bloc/firestore_add/firestore_bloc.dart';
 import '../bloc/firestore_add/firestore_events.dart';
 import '../bloc/firestore_add/firestore_state.dart';
