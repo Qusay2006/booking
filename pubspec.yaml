@@ -23,6 +23,8 @@ dependencies:
   flutter_bloc: ^8.1.6
   bloc: ^8.1.4
   get_it: ^7.6.7
+  injectable: ^2.1.2
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
@@ -31,7 +33,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
   build_runner: ^2.4.14         # أداة التوليد العامة
   riverpod_generator: ^2.6.3
-
+  injectable_generator: ^2.1.6
 
   flutter_lints: ^6.0.0
 

@@ -1,10 +1,10 @@
 import '../../core/result.dart';
 import '../../domain/model/booking_model.dart';
 import '../../domain/repository/booking_repo.dart';
-import '../services/api_client.dart';
+import '../services/getBooking_api.dart';
 
 interface class BookingRepoImpl implements BookingRepo {
-  final ApiClient _apiClient;
+  final GetbookingApi _apiClient;
 
   BookingRepoImpl({required this._apiClient});
 
